@@ -6,7 +6,15 @@
     <link rel="stylesheet" href="../build/nv.d3.css">
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .chart-container { height: 400px; margin: 20px; }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 0 20px;
+        }
+        .chart-container { flex: 1; height: 100%; }
+        .chart-wrapper { display:flex; flex-direction:column; height:400px; }
+        .chart-wrapper h2 { margin: 0 0 10px 0; font-size: 1.2em; }
     </style>
 </head>
 <body>
