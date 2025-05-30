@@ -51,14 +51,17 @@
             chartWrapper('chart1', 'Contribuci\u00f3n en el tiempo'),
             chartWrapper('chart2', 'Inversi\u00f3n en el tiempo'),
             chartWrapper('chart3', 'Contribuci\u00f3n por canal'),
-            chartWrapper('chart4', 'Contribuci\u00f3n por agrupaci\u00f3n'),
-            chartWrapper('chart5', 'ROI por canal'),
-            chartWrapper('chart6', 'Contribuci\u00f3n vs Inversi\u00f3n')
+            chartWrapper('chart4', 'Contribuci\u00f3n por agrupaci\u00f3n')
         );
 
         const page2 = React.createElement('div', {className:'charts-grid'},
+            chartWrapper('chart5', 'ROI por canal'),
+            chartWrapper('chart6', 'Contribuci\u00f3n vs Inversi\u00f3n'),
             chartWrapper('chart7', 'Contribuci\u00f3n por variable'),
-            chartWrapper('chart8', 'Inversi\u00f3n por variable'),
+            chartWrapper('chart8', 'Inversi\u00f3n por variable')
+        );
+
+        const page3 = React.createElement('div', {className:'charts-grid'},
             chartWrapper('chart9', 'Contribuci\u00f3n acumulada'),
             chartWrapper('chart10', 'Distribuci\u00f3n de contribuci\u00f3n'),
             chartWrapper('chart11', 'Inversi\u00f3n acumulada'),
@@ -70,6 +73,7 @@
             React.createElement('div', {style:{margin:'0 20px 20px 20px'}},
                 React.createElement('button', {onClick:()=>setPage(1), disabled: page===1}, 'Página 1'),
                 React.createElement('button', {onClick:()=>setPage(2), disabled: page===2, style:{marginLeft:'10px'}}, 'Página 2'),
+                React.createElement('button', {onClick:()=>setPage(3), disabled: page===3, style:{marginLeft:'10px'}}, 'Página 3'),
                 React.createElement('label', {style:{marginLeft:'20px'}}, 'Desde:',
                     React.createElement('input', {type:'date', value:startDate, onChange:e=>setStartDate(e.target.value)})
                 ),
@@ -77,7 +81,7 @@
                     React.createElement('input', {type:'date', value:endDate, onChange:e=>setEndDate(e.target.value)})
                 )
             ),
-            page===1 ? page1 : page2
+            page===1 ? page1 : page===2 ? page2 : page3
         );
     }
 
